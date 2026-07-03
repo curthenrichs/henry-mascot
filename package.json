@@ -1,0 +1,18 @@
+{
+  "name": "henry-mascot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Henry, the robot mascot of curthenrichs.github.io and half-built-robots.com — SVG masters, palette, and generated icon sets",
+  "scripts": {
+    "generate": "node scripts/generate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curthenrichs/henry-mascot.git"
+  },
+  "author": "Curt Henrichs",
+  "devDependencies": {
+    "png-to-ico": "^2.1.8",
+    "sharp": "^0.33.5"
+  }
+}
