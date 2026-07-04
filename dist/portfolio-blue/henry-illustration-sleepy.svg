@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 148">
+  <!-- Sleepy: half-lidded eyes (lower semicircles), antenna tilted with faded
+       ball, Zzz stair-stepping toward the top-right. Robot shifted +16y;
+       antenna group pivots at the stem base (80,60). -->
+  <g transform="rotate(-16 80 60)">
+    <circle cx="80" cy="29.5" r="10" fill="#1890ff" opacity="0.1"/>
+    <circle cx="80" cy="29.5" r="8.5" fill="#1890ff" opacity="0.5"/>
+    <rect x="76.5" y="36" width="7" height="24" rx="3" fill="#555555"/>
+  </g>
+  <rect x="28" y="62.5" width="104" height="73" rx="17.5" fill="#ffffff" stroke="#555555" stroke-width="5"/>
+  <!-- half-lidded eyes: lower semicircles, flat lid on top -->
+  <path d="M 53 99 A 8.5 8.5 0 0 0 70 99 Z" fill="#1890ff"/>
+  <path d="M 90 99 A 8.5 8.5 0 0 0 107 99 Z" fill="#1890ff"/>
+  <!-- Zzz, small to large, stair-stepping up-right -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -7 -7 H 7 L -7 7 H 7" transform="translate(142 80) scale(0.55)" stroke="#40a9ff" stroke-width="4.5"/>
+    <path d="M -7 -7 H 7 L -7 7 H 7" transform="translate(160 54) scale(0.8)" stroke="#40a9ff" stroke-width="4.5"/>
+    <path d="M -7 -7 H 7 L -7 7 H 7" transform="translate(180 26) scale(1.05)" stroke="#1890ff" stroke-width="4.5"/>
+  </g>
+</svg>
