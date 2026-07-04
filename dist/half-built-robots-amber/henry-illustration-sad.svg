@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 132">
+  <!-- Sad: lowered dot eyes, antenna drooping left with dimmed ball, one big
+       manga teardrop beside the head. Robot shifted +4y; antenna group
+       pivots at the stem base (80,48). -->
+  <g transform="rotate(-24 80 48)">
+    <circle cx="80" cy="17.5" r="10" fill="#ffaa3c" opacity="0.12"/>
+    <circle cx="80" cy="17.5" r="8.5" fill="#ffaa3c" opacity="0.55"/>
+    <rect x="76.5" y="24" width="7" height="24" rx="3" fill="#555555"/>
+  </g>
+  <rect x="28" y="50.5" width="104" height="73" rx="17.5" fill="#ffffff" stroke="#555555" stroke-width="5"/>
+  <!-- eyes lowered 4 units below the neutral line -->
+  <circle cx="61.5" cy="91" r="8.5" fill="#ffaa3c"/>
+  <circle cx="98.5" cy="91" r="8.5" fill="#ffaa3c"/>
+  <!-- giant manga teardrop, beside the head (the archetype of the register) -->
+  <path d="M 0 -16 C 5 -8 11 -1 11 7 A 11 11 0 0 1 -11 7 C -11 -1 -5 -8 0 -16 Z"
+        transform="translate(156 86)" fill="#ffc46e"/>
+</svg>
