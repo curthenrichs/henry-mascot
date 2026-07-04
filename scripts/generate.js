@@ -45,6 +45,7 @@ const ICON_MASTERS = {
 const ILLUSTRATION_MOODS = [
   "friendly",
   "confused",
+  "happy",
 ];
 
 // Illustration PNGs always export at 4x the master's viewBox width.

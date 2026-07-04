@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 136">
+  <!-- Happy: closed arc eyes, brighter antenna glow (bigger halo), sparkles.
+       Robot at friendly geometry shifted +20x/+4y for sparkle headroom. -->
+  <circle cx="100" cy="17.5" r="15" fill="#ffaa3c" opacity="0.22"/>
+  <circle cx="100" cy="17.5" r="8.5" fill="#ffaa3c"/>
+  <rect x="96.5" y="24" width="7" height="24" rx="3" fill="#555555"/>
+  <rect x="48" y="50.5" width="104" height="73" rx="17.5" fill="#ffffff" stroke="#555555" stroke-width="5"/>
+  <!-- closed happy arc eyes (upward semicircles) -->
+  <path d="M 71 90 A 10.5 10.5 0 0 1 92 90" fill="none" stroke="#ffaa3c" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M 108 90 A 10.5 10.5 0 0 1 129 90" fill="none" stroke="#ffaa3c" stroke-width="5.5" stroke-linecap="round"/>
+  <!-- sparkles: four-point twinkles -->
+  <path d="M 0 -9 Q 2 -2 9 0 Q 2 2 0 9 Q -2 2 -9 0 Q -2 -2 0 -9 Z" transform="translate(162 30)" fill="#ffaa3c"/>
+  <path d="M 0 -9 Q 2 -2 9 0 Q 2 2 0 9 Q -2 2 -9 0 Q -2 -2 0 -9 Z" transform="translate(180 58) scale(0.65)" fill="#ffc46e"/>
+  <path d="M 0 -9 Q 2 -2 9 0 Q 2 2 0 9 Q -2 2 -9 0 Q -2 -2 0 -9 Z" transform="translate(30 34) scale(0.55)" fill="#ffc46e"/>
+</svg>
