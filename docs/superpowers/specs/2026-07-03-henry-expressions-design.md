@@ -60,8 +60,8 @@ with happy arc eyes reads as "broken," not as an expression.
 Manga-style symbols floating above or beside the head — placement is a
 composition choice per pose, following the confused pose's precedent (question
 marks beside/above at a tilt). Vocabulary: `?` (canon), `!`, sweat drop / tear,
-Zzz, sparkles, hearts, dizzy stars, `)))` signal arcs, cycling dots, small
-status icons (battery sliver).
+Zzz, sparkles, hearts, dizzy stars, the manga anger vein, `)))` signal arcs,
+cycling dots, small status icons (battery sliver).
 
 Construction rules, extending the question-mark precedent:
 
@@ -81,6 +81,7 @@ Construction rules, extending the question-mark precedent:
 | 4 | Sleepy | half-lidded dots | stem tilted, ball faded | Zzz stair-stepping up | Z's float up and fade, long slow blinks |
 | 5 | Love / delighted | arcs or dots | normal ball | floating heart(s) | heart boings up like the `?` |
 | 6 | Dizzy | X-eyes | stem wobbles | stars orbiting head | stars circle |
+| 7 | Pouty / grumpy | squeezed `> <` or flat-lidded dots | stem stiff, ball flickers irritably | manga anger vein (cruciform popped-vein mark) beside head | vein pulses |
 
 ### Robot set (tip may morph)
 
@@ -121,5 +122,3 @@ overshoot; nothing snaps.
 
 - No SVG masters, generator changes, or dist output in this round
 - No new colorways; all expressions use the existing per-site palettes
-- Pouty/grumpy was considered and cut — off-brand for a mascot whose job is
-  being nice
