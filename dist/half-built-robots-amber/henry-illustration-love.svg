@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 170">
+  <!-- Love: neutral dot eyes, normal antenna, floating hearts top-right in
+       the confused-pose composition (main accent heart + smaller accentSoft
+       companion). Robot at x=100, shifted down 42. -->
+  <circle cx="100" cy="55.5" r="13" fill="#ffaa3c" opacity="0.22"/>
+  <circle cx="100" cy="55.5" r="8.5" fill="#ffaa3c"/>
+  <rect x="96.5" y="62" width="7" height="24" rx="3" fill="#555555"/>
+  <rect x="48" y="88.5" width="104" height="73" rx="17.5" fill="#ffffff" stroke="#555555" stroke-width="5"/>
+  <circle cx="81.5" cy="125" r="8.5" fill="#ffaa3c"/>
+  <circle cx="118.5" cy="125" r="8.5" fill="#ffaa3c"/>
+  <!-- main heart -->
+  <path d="M 0 -3 C -1.5 -6 -6 -6 -7.5 -3 C -9 0 -6 3 0 7.5 C 6 3 9 0 7.5 -3 C 6 -6 1.5 -6 0 -3 Z"
+        transform="translate(146 24) rotate(10) scale(1.9)" fill="#ffaa3c"/>
+  <!-- companion heart -->
+  <path d="M 0 -3 C -1.5 -6 -6 -6 -7.5 -3 C -9 0 -6 3 0 7.5 C 6 3 9 0 7.5 -3 C 6 -6 1.5 -6 0 -3 Z"
+        transform="translate(180 12) rotate(22) scale(1.15)" fill="#ffc46e"/>
+</svg>
