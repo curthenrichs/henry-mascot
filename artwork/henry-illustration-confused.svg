@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">
+  <!-- Confused pose: robot from the friendly illustration shifted down, with
+       manga question marks placed per the CuteRobot CSS (main ? at +35px/6px
+       tilt 10deg, small ? at +76px/0px tilt 22deg, relative to center).
+       Question marks are stroke-drawn, not text, so no font dependency. -->
+  <circle cx="100" cy="65.5" r="13" fill="#1890ff" opacity="0.22"/>
+  <circle cx="100" cy="65.5" r="8.5" fill="#1890ff"/>
+  <rect x="96.5" y="72" width="7" height="24" rx="3" fill="#555555"/>
+  <rect x="48" y="98.5" width="104" height="73" rx="17.5" fill="#ffffff" stroke="#555555" stroke-width="5"/>
+  <circle cx="81.5" cy="135" r="8.5" fill="#1890ff"/>
+  <circle cx="118.5" cy="135" r="8.5" fill="#1890ff"/>
+  <!-- main question mark -->
+  <g transform="translate(145 24) rotate(10)">
+    <path d="M -7 -10 A 7.5 7.5 0 1 1 0 -1 L 0 5" fill="none" stroke="#1890ff" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="0" cy="13" r="3.2" fill="#1890ff"/>
+  </g>
+  <!-- small companion question mark -->
+  <g transform="translate(181 10) rotate(22) scale(0.55)">
+    <path d="M -7 -10 A 7.5 7.5 0 1 1 0 -1 L 0 5" fill="none" stroke="#40a9ff" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="0" cy="13" r="3.2" fill="#40a9ff"/>
+  </g>
+</svg>
