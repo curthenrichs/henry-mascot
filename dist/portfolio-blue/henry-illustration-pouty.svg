@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 128">
+  <!-- Pouty: > < squeezed eyes, stiff antenna with an irritable (tight, dim)
+       halo, manga anger vein beside the head. Robot at friendly geometry. -->
+  <circle cx="80" cy="13.5" r="10" fill="#1890ff" opacity="0.15"/>
+  <circle cx="80" cy="13.5" r="8.5" fill="#1890ff"/>
+  <rect x="76.5" y="20" width="7" height="24" rx="3" fill="#555555"/>
+  <rect x="28" y="46.5" width="104" height="73" rx="17.5" fill="#ffffff" stroke="#555555" stroke-width="5"/>
+  <!-- > < eyes -->
+  <g fill="none" stroke="#1890ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 52 76 L 69 83 L 52 90"/>
+    <path d="M 108 76 L 91 83 L 108 90"/>
+  </g>
+  <!-- manga anger vein (cruciform popped-vein 💢 mark): four short, fat lobes
+       bulge through the cardinals with broad turgid tips; sharp miter notches
+       pinch at the diagonals so it reads as a popped vein, not a sparkle -->
+  <g transform="translate(154 58) rotate(8)" fill="none" stroke="#1890ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="miter">
+    <path d="M 5 -5 C 8 -14 -8 -14 -5 -5 C -14 -8 -14 8 -5 5 C -8 14 8 14 5 5 C 14 8 14 -8 5 -5 Z"/>
+  </g>
+</svg>
