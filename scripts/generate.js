@@ -57,6 +57,7 @@ const ILLUSTRATION_MOODS = [
   "charging",
   "broadcasting",
   "rebooting",
+  "low-battery",
 ];
 
 // Illustration PNGs always export at 4x the master's viewBox width.
