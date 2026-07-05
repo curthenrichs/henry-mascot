@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 136">
   <!-- Glitched: mismatched eye sizes, antenna tip morphed into a jagged
-       spark (first robot-set tip morph), pixel artifacts drifting off the
-       head. Robot shifted +8y. -->
+       spark (first robot-set tip morph), stars orbiting the crown (dizzy's
+       motif, at the same head-relative positions). Robot shifted +8y. -->
   <circle cx="80" cy="20" r="13" fill="#1890ff" opacity="0.22"/>
   <!-- spark bolt replaces the ball -->
   <polygon points="84,6 73,22 79,22 76,34 87,17 81,17" fill="#1890ff"/>
@@ -10,8 +10,8 @@
   <!-- mismatched eyes -->
   <circle cx="61.5" cy="91" r="5.5" fill="#1890ff"/>
   <circle cx="98.5" cy="91" r="11" fill="#1890ff"/>
-  <!-- pixel artifacts -->
-  <rect x="142" y="62" width="6" height="6" fill="#1890ff"/>
-  <rect x="154" y="76" width="4" height="4" fill="#40a9ff"/>
-  <rect x="146" y="90" width="5" height="5" fill="#1890ff" opacity="0.6"/>
+  <!-- orbiting stars (dizzy positions shifted -10y for this pose's layout) -->
+  <path d="M 0 -9 Q 2 -2 9 0 Q 2 2 0 9 Q -2 2 -9 0 Q -2 -2 0 -9 Z" transform="translate(32 30) scale(0.55)" fill="#40a9ff"/>
+  <path d="M 0 -9 Q 2 -2 9 0 Q 2 2 0 9 Q -2 2 -9 0 Q -2 -2 0 -9 Z" transform="translate(120 16) scale(0.8)" fill="#1890ff"/>
+  <path d="M 0 -9 Q 2 -2 9 0 Q 2 2 0 9 Q -2 2 -9 0 Q -2 -2 0 -9 Z" transform="translate(154 46) scale(0.6)" fill="#40a9ff"/>
 </svg>

@@ -78,7 +78,7 @@ Construction rules, extending the question-mark precedent:
 | 1 | Happy / excited | arcs `⌒⌒` | ball brighter, quick pulse | 2–3 sparkles | sparkles twinkle, pulse quickens |
 | 2 | Sad / apologetic | lowered dots | stem droops, ball dim | one large tear-style drop beside head | slow blink, drop slides down |
 | 3 | Surprised / alert | oversized dots | ramrod straight, flash | single big `!` | `!` pops with overshoot boing |
-| 4 | Sleepy | half-lidded dots | stem tilted, ball faded | Zzz stair-stepping up | Z's float up and fade, long slow blinks |
+| 4 | Sleepy | half-lidded dots | stem tilted, ball faded | two Z's stair-stepping up | Z's float up and fade, long slow blinks |
 | 5 | Love / delighted | arcs or dots | normal ball | floating heart(s) | heart boings up like the `?` |
 | 6 | Dizzy | X-eyes | stem wobbles | stars orbiting head | stars circle |
 | 7 | Pouty / grumpy | squeezed `> <` or flat-lidded dots | stem stiff, ball flickers irritably | manga anger vein (cruciform popped-vein mark) beside head | vein pulses |
@@ -87,7 +87,7 @@ Construction rules, extending the question-mark precedent:
 
 | Rank | Mood | Eyes | Antenna tip | Detail | Implied animation |
 |---|---|---|---|---|---|
-| 1 | Glitched / does-not-compute | X-eyes or mismatched sizes | jagged spark | pixel-square artifacts drifting off the head | artifacts flicker |
+| 1 | Glitched / does-not-compute | X-eyes or mismatched sizes | jagged spark | stars orbiting the crown (dizzy's motif) | stars flicker and orbit |
 | 2 | Signal lost | small worried dots | dish, tilted, searching | broken/dashed `)))` arcs | dish sweeps side to side |
 | 3 | Charging | content arcs | plug, cord trailing off-frame | — | slow contented glow swell |
 | 4 | Broadcasting | happy arcs | dish (or ball) radiating | clean `)))` waves | waves ripple outward |
