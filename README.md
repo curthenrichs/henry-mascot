@@ -5,6 +5,12 @@ Henry is the robot mascot of [curthenrichs.github.io](https://curthenrichs.githu
 glowing antenna who waves hello while pages load and apologizes when one has gone missing, and he
 keeps the sites feeling human while their actual human is busy soldering.
 
+<p align="center">
+  <img src="dist/portfolio-blue/henry-illustration-friendly.svg" width="200" alt="Henry in his friendly pose: a white robot head with blue eyes and a glowing blue antenna">
+  &nbsp;&nbsp;&nbsp;
+  <img src="dist/portfolio-blue/henry-illustration-confused.svg" width="178" alt="Henry in his confused pose, with two question marks popping above his head">
+</p>
+
 **Why "Henry"?** The henry is the SI unit of inductance. It's also the first syllable of
 Henrichs. A personal monogram, expressed in physics.
 
@@ -21,22 +27,54 @@ He comes in two forms:
   app icons. The ground does the outlining.
 - **Illustration form** (transparent ground, `#555555` outline): his portrait for light
   surfaces, matching the animated component on the portfolio's 404 page and loading veil. The
-  outline stays gray in every colorway. Two poses ship in `dist/`: *friendly* and *confused*
-  (question marks included).
+  outline stays gray in every colorway. Fifteen moods ship in `dist/`; the expression gallery
+  below has the full roster.
 
 - **Head:** white rounded rectangle, 1.4:1 width-to-height ratio (canonically 109×78 in CSS,
   300×214 in the 512 master)
 - **Eyes:** two round accent-colored dots; they blink
 - **Antenna:** a single stem with a glowing accent-colored tip. This is Henry's signature and
   it never comes off
-- **Moods:**
-  - *Friendly* (default): eyes blink on a ~3.2s cycle, antenna tip pulses
-  - *Confused* (404 pages): manga-style question marks pop above his head with an overshoot
-    "boing"; the body stays still and only the eyes blink
+- **Moods:** every expression is a combination of three channels — eye shape, antenna
+  state, and stroke-drawn manga symbols (emanata). The grammar and the per-mood specs
+  live in the [expression design doc](docs/superpowers/specs/2026-07-03-henry-expressions-design.md).
+  The two load-bearing rules: the antenna must agree with the eyes (it's the mood
+  barometer), and the antenna tip stays a glowing ball except in robot moods, where it
+  may swap to hardware (a plug, a dish, a spark). *Friendly* (blinking, pulsing) and
+  *confused* (question marks, boing) remain the two moods with living animated
+  implementations in the portfolio's `CuteRobot` component.
 
 The living animated implementation is the `CuteRobot` React component in the
 [portfolio repo](https://github.com/curthenrichs/curthenrichs.github.io)
 (`src/components/CuteRobot.jsx`), which also documents the animation timings.
+
+## Gallery
+
+| Form | portfolio-blue | half-built-robots-amber |
+|---|---|---|
+| Icon, 512 master | <img src="dist/portfolio-blue/henry-master.svg" width="100" alt="Henry icon on navy, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-master.svg" width="100" alt="Henry icon on near-black, amber"> |
+| Icon, pixel-fitted 32 (shown 2×) | <img src="dist/portfolio-blue/henry-32.svg" width="64" alt="32px Henry icon, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-32.svg" width="64" alt="32px Henry icon, amber"> |
+| Icon, pixel-fitted 16 (shown 2×) | <img src="dist/portfolio-blue/henry-16.svg" width="32" alt="16px Henry icon, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-16.svg" width="32" alt="16px Henry icon, amber"> |
+
+### Expressions
+
+| Mood | portfolio-blue | half-built-robots-amber |
+|---|---|---|
+| Friendly | <img src="dist/portfolio-blue/henry-illustration-friendly.svg" width="140" alt="Friendly Henry, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-friendly.svg" width="140" alt="Friendly Henry, amber"> |
+| Confused | <img src="dist/portfolio-blue/henry-illustration-confused.svg" width="140" alt="Confused Henry with question marks, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-confused.svg" width="140" alt="Confused Henry with question marks, amber"> |
+| Happy | <img src="dist/portfolio-blue/henry-illustration-happy.svg" width="140" alt="Happy Henry with closed arc eyes and sparkles, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-happy.svg" width="140" alt="Happy Henry with closed arc eyes and sparkles, amber"> |
+| Sad | <img src="dist/portfolio-blue/henry-illustration-sad.svg" width="140" alt="Sad Henry with drooping antenna and a big teardrop, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-sad.svg" width="140" alt="Sad Henry with drooping antenna and a big teardrop, amber"> |
+| Surprised | <img src="dist/portfolio-blue/henry-illustration-surprised.svg" width="140" alt="Surprised Henry with wide eyes and an exclamation mark, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-surprised.svg" width="140" alt="Surprised Henry with wide eyes and an exclamation mark, amber"> |
+| Sleepy | <img src="dist/portfolio-blue/henry-illustration-sleepy.svg" width="140" alt="Sleepy Henry with half-lidded eyes and Zzz, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-sleepy.svg" width="140" alt="Sleepy Henry with half-lidded eyes and Zzz, amber"> |
+| Love | <img src="dist/portfolio-blue/henry-illustration-love.svg" width="140" alt="Henry with floating hearts, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-love.svg" width="140" alt="Henry with floating hearts, amber"> |
+| Dizzy | <img src="dist/portfolio-blue/henry-illustration-dizzy.svg" width="140" alt="Dizzy Henry with X eyes and orbiting stars, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-dizzy.svg" width="140" alt="Dizzy Henry with X eyes and orbiting stars, amber"> |
+| Pouty | <img src="dist/portfolio-blue/henry-illustration-pouty.svg" width="140" alt="Pouty Henry with squeezed eyes and an anger vein, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-pouty.svg" width="140" alt="Pouty Henry with squeezed eyes and an anger vein, amber"> |
+| Glitched | <img src="dist/portfolio-blue/henry-illustration-glitched.svg" width="140" alt="Glitched Henry with a spark antenna and pixel artifacts, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-glitched.svg" width="140" alt="Glitched Henry with a spark antenna and pixel artifacts, amber"> |
+| Signal lost | <img src="dist/portfolio-blue/henry-illustration-signal-lost.svg" width="140" alt="Henry with a searching dish antenna and broken signal arcs, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-signal-lost.svg" width="140" alt="Henry with a searching dish antenna and broken signal arcs, amber"> |
+| Charging | <img src="dist/portfolio-blue/henry-illustration-charging.svg" width="140" alt="Content Henry charging through a plug on his antenna, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-charging.svg" width="140" alt="Content Henry charging through a plug on his antenna, amber"> |
+| Broadcasting | <img src="dist/portfolio-blue/henry-illustration-broadcasting.svg" width="140" alt="Henry broadcasting signal waves from his antenna, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-broadcasting.svg" width="140" alt="Henry broadcasting signal waves from his antenna, amber"> |
+| Rebooting | <img src="dist/portfolio-blue/henry-illustration-rebooting.svg" width="140" alt="Rebooting Henry with closed eyes and cycling dots, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-rebooting.svg" width="140" alt="Rebooting Henry with closed eyes and cycling dots, amber"> |
+| Low battery | <img src="dist/portfolio-blue/henry-illustration-low-battery.svg" width="140" alt="Low-battery Henry with an unlit antenna and a battery icon, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-low-battery.svg" width="140" alt="Low-battery Henry with an unlit antenna and a battery icon, amber"> |
 
 ## Palettes
 
@@ -66,6 +104,10 @@ illustration form the stem is gray like the outline, matching the CSS component.
 4. **Antenna always present.** It's what makes the silhouette read "robot" instead of "chat app."
 5. **Don't stretch, rotate, or recolor outside the official palettes.** New colorways get added
    to `scripts/generate.js` as variants, with their source documented here.
+6. **Expressions follow the grammar.** A new mood is a combination of eye shape, antenna
+   state, and stroke-drawn emanata per the
+   [expression design doc](docs/superpowers/specs/2026-07-03-henry-expressions-design.md);
+   the antenna tip morphs into hardware only in robot moods.
 
 ## Repo layout
 
@@ -74,8 +116,8 @@ artwork/    SVG masters, authored in the canonical (portfolio-blue) palette
   henry-master.svg                  512 viewBox, source for the 180/192/512 outputs
   henry-32.svg                      pixel-fitted 32, source for the 32 output and 48 ICO layer
   henry-16.svg                      pixel-fitted 16, source for the 16 output and 16 ICO layer
-  henry-illustration-friendly.svg   outlined portrait, transparent ground
-  henry-illustration-confused.svg   outlined portrait with question marks
+  henry-illustration-<mood>.svg     outlined portraits, one per mood (15 moods; the list
+                                    lives in ILLUSTRATION_MOODS in scripts/generate.js)
 scripts/
   generate.js        recolors masters per variant, rasterizes, verifies
 dist/               committed generated output; consumers vendor from here
@@ -85,10 +127,10 @@ dist/               committed generated output; consumers vendor from here
 
 Each `dist/<variant>/` contains: `favicon.ico` (16/32/48 layers), `favicon-16x16.png`,
 `favicon-32x32.png`, `apple-touch-icon.png` (180), `android-chrome-192x192.png`,
-`android-chrome-512x512.png`, illustration PNGs (`henry-illustration-friendly.png` at 640 wide,
-`henry-illustration-confused.png` at 800 wide, both transparent), plus recolored copies of all
-five SVGs. The illustration question marks are stroke-drawn paths, not text, so they render
-identically everywhere with no font dependency.
+`android-chrome-512x512.png`, one transparent illustration PNG per mood (4× the master's viewBox width), plus recolored
+copies of all eighteen SVGs. Illustration emanata (question marks, sparkles, hearts, and
+the rest) are stroke-drawn paths, not text, so they render identically everywhere with no
+font dependency.
 
 ## Regenerating
 
