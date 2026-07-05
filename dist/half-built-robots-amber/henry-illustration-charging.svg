@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 148">
+  <!-- Charging: content arc eyes, antenna tip morphed into a plug whose cord
+       trails off the top-right of the frame, contented glow. Robot +20y. -->
+  <circle cx="80" cy="33" r="13" fill="#ffaa3c" opacity="0.22"/>
+  <!-- cord trailing off-frame -->
+  <path d="M 80 26 C 82 12 106 8 130 11 C 152 14 166 8 176 10"
+        fill="none" stroke="#555555" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- plug body seated on the stem tip, with an accent charge LED -->
+  <rect x="72" y="26" width="16" height="14" rx="3.5" fill="#555555"/>
+  <circle cx="80" cy="33" r="2.8" fill="#ffaa3c"/>
+  <rect x="76.5" y="40" width="7" height="24" rx="3" fill="#555555"/>
+  <rect x="28" y="66.5" width="104" height="73" rx="17.5" fill="#ffffff" stroke="#555555" stroke-width="5"/>
+  <!-- content arc eyes -->
+  <path d="M 51 106 A 10.5 10.5 0 0 1 72 106" fill="none" stroke="#ffaa3c" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M 88 106 A 10.5 10.5 0 0 1 109 106" fill="none" stroke="#ffaa3c" stroke-width="5.5" stroke-linecap="round"/>
+</svg>
