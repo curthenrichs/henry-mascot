@@ -88,7 +88,7 @@ Construction rules, extending the question-mark precedent:
 | Rank | Mood | Eyes | Antenna tip | Detail | Implied animation |
 |---|---|---|---|---|---|
 | 1 | Glitched / does-not-compute | X-eyes or mismatched sizes | jagged spark | stars orbiting the crown (dizzy's motif) | stars flicker and orbit |
-| 2 | Signal lost | small worried dots | dish, tilted, searching | broken/dashed `)))` arcs | dish sweeps side to side |
+| 2 | Signal lost | small worried dots | lit ball, subdued halo | garbled static scribbles up-right (noise, where broadcasting has clean waves) | scribbles jitter |
 | 3 | Charging | content arcs | plug, cord trailing off-frame | — | slow contented glow swell |
 | 4 | Broadcasting | happy arcs | dish (or ball) radiating | clean `)))` waves | waves ripple outward |
 | 5 | Rebooting | closed | ball blinking steady 1 Hz | `· · ·` cycling | dots cycle |
