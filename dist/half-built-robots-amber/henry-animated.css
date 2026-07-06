@@ -1,0 +1,155 @@
+/* Henry -- animated (living) form. Colorway-templated source: generate.js
+ * recolors #ffaa3c/#ffc46e per variant; #555 outline and #fff head are
+ * palette-invariant. Consumers render the cute-robot- markup (container >
+ * robot > antenna + head > 2 eyes, plus 2 question spans for the confused
+ * pose) documented here; that class contract is the interface. The
+ * portfolio's CuteRobot.jsx and its prerender veil both consume this. */
+.cute-robot-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 160px;
+}
+
+/* Reserve headroom for the absolutely-positioned question marks */
+.cute-robot-has-question {
+  padding-top: 52px;
+}
+
+/* Manga-style question marks: a big "?" with a smaller companion, tilted
+ * off-axis, popping with an overshoot "boing" timed just after the eye
+ * blink (both run on the same 3.2s cycle), then drifting before re-popping.
+ * Per-mark placement/tilt via CSS variables so both share one keyframe set. */
+.cute-robot-q {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  transform: translate(var(--q-x), var(--q-y)) rotate(var(--q-tilt));
+  animation: cute-robot-q-boing 3.2s ease-in-out infinite;
+}
+
+.cute-robot-q-main {
+  --q-x: 35px;
+  --q-y: 6px;
+  --q-tilt: 10deg;
+  font-size: 36px;
+  color: #ffaa3c;
+}
+
+.cute-robot-q-small {
+  --q-x: 76px;
+  --q-y: 0px;
+  --q-tilt: 22deg;
+  font-size: 20px;
+  color: #ffc46e;
+  animation-delay: -1.1s;
+}
+
+@keyframes cute-robot-q-boing {
+  0% {
+    transform: translate(var(--q-x), var(--q-y))
+      rotate(calc(var(--q-tilt) - 5deg)) scale(0.85);
+  }
+  7% {
+    transform: translate(var(--q-x), var(--q-y))
+      rotate(calc(var(--q-tilt) + 4deg)) scale(1.18);
+  }
+  14% {
+    transform: translate(var(--q-x), var(--q-y)) rotate(var(--q-tilt)) scale(1);
+  }
+  55% {
+    transform: translate(var(--q-x), calc(var(--q-y) - 4px))
+      rotate(calc(var(--q-tilt) + 6deg)) scale(1);
+  }
+  92% {
+    transform: translate(var(--q-x), var(--q-y))
+      rotate(calc(var(--q-tilt) - 3deg)) scale(1);
+  }
+  100% {
+    transform: translate(var(--q-x), var(--q-y))
+      rotate(calc(var(--q-tilt) - 5deg)) scale(0.85);
+  }
+}
+
+/* Body stays still (per design feedback) -- only eyes blink, antenna glows */
+.cute-robot-robot {
+  position: relative;
+  display: inline-block;
+}
+
+.cute-robot-antenna {
+  display: block;
+  width: 7px;
+  height: 24px;
+  background: #555;
+  margin: 0 auto;
+  border-radius: 3px;
+  position: relative;
+}
+
+.cute-robot-antenna::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -5.5px;
+  width: 17px;
+  height: 17px;
+  background: #ffaa3c;
+  border-radius: 50%;
+  animation: cute-robot-glow 1.6s ease-in-out infinite;
+}
+
+@keyframes cute-robot-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cute-robot-head {
+  width: 109px;
+  height: 78px;
+  border: 5px solid #555;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.cute-robot-eye {
+  width: 17px;
+  height: 17px;
+  background: #ffaa3c;
+  border-radius: 50%;
+  animation: cute-robot-blink 3.2s infinite;
+}
+
+@keyframes cute-robot-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cute-robot-q,
+  .cute-robot-antenna::before,
+  .cute-robot-eye {
+    animation: none;
+  }
+}

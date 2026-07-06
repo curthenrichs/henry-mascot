@@ -22,6 +22,7 @@ const pngToIco = require("png-to-ico");
 const ROOT = path.join(__dirname, "..");
 const ART = path.join(ROOT, "artwork");
 const DIST = path.join(ROOT, "dist");
+const ANIMATED_CSS_SRC = path.join(ART, "henry-animated.css");
 
 const CANON = { ground: "#112244", accent: "#1890ff", accentSoft: "#40a9ff" };
 const OUTLINE = "#555555";
@@ -120,6 +121,10 @@ function validateMasters() {
       }
     }
   }
+  const animated = fs.readFileSync(ANIMATED_CSS_SRC, "utf8");
+  if (!animated.includes(CANON.accent)) {
+    throw new Error("henry-animated.css: canonical accent not found; recoloring would no-op");
+  }
 }
 
 function recolor(svgText, variant) {
@@ -181,6 +186,9 @@ async function buildVariant(variant) {
   );
   fs.writeFileSync(path.join(dir, "favicon.ico"), await pngToIco(layers));
 
+  const animatedCss = recolor(fs.readFileSync(ANIMATED_CSS_SRC, "utf8"), variant);
+  fs.writeFileSync(path.join(dir, "henry-animated.css"), animatedCss);
+
   // ---- verification: wrong output is a hard failure ----
   for (const { file, source, width } of outputs) {
     const expectedHeight = outputHeight(svgs[source], width);
@@ -198,7 +206,7 @@ async function buildVariant(variant) {
   }
 
   console.log(
-    `${variant.name}: ${outputs.length} PNGs + favicon.ico (${ICO_LAYERS.map((l) => l.width).join("/")}) + ${Object.keys(svgs).length} SVGs`
+    `${variant.name}: ${outputs.length} PNGs + favicon.ico (${ICO_LAYERS.map((l) => l.width).join("/")}) + ${Object.keys(svgs).length} SVGs + henry-animated.css`
   );
 }
 
