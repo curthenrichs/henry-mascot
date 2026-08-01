@@ -250,4 +250,11 @@
   .cute-robot-eye {
     animation: none;
   }
+
+  /* Z's are animation-born (base opacity 0); pin one visible frame so
+   * the sleepy mood keeps its emanata as a static image. */
+  .cute-robot-z {
+    opacity: 1;
+    transform: translate(calc(var(--z-x) + 5px), calc(var(--z-y) - 8px));
+  }
 }
