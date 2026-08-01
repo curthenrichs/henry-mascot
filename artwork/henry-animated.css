@@ -1,10 +1,11 @@
 /* Henry -- animated (living) form. Colorway-templated source: generate.js
  * recolors #1890ff/#40a9ff per variant; #555 outline and #fff head are
  * palette-invariant. Consumers render the cute-robot- markup (container >
- * robot > antenna + head > 2 eyes, plus 2 question spans for the confused
- * pose or 3 Z spans for the sleepy pose) documented here; that class
- * contract is the interface. The portfolio's CuteRobot.jsx and its
- * prerender veil both consume this. */
+ * robot > antenna + head > 2 eyes; effect spans per mood: 2 question spans,
+ * 3 Z spans, an orbit wrapper with 2 stars, a dots wrapper with 3 dots; a
+ * full rig may carry all of them, the container's mood class decides what
+ * shows) documented here; that class contract is the interface. The
+ * portfolio's CuteRobot.jsx and its prerender veil both consume this. */
 .cute-robot-container {
   display: inline-flex;
   flex-direction: column;
@@ -196,6 +197,9 @@
   color: #1890ff;
   opacity: 0;
   transform: translate(var(--z-x), var(--z-y)) scale(0.6);
+}
+
+.cute-robot-sleepy .cute-robot-z {
   animation: cute-robot-z-drift 4.2s ease-out infinite;
 }
 
@@ -243,17 +247,303 @@
   }
 }
 
+/* Happy: the base face. The class exists so consumers can swap mood
+ * classes symmetrically; it overrides nothing. */
+.cute-robot-happy .cute-robot-head {
+  background: #fff;
+}
+
+/* Surprised: wide staring eyes, blink suspended, antenna glowing fast.
+ * Used for startle, flee, and the first-hit face. */
+.cute-robot-surprised .cute-robot-eye {
+  width: 22px;
+  height: 22px;
+  animation: none;
+}
+
+.cute-robot-surprised .cute-robot-antenna::before {
+  animation-duration: 0.5s;
+}
+
+/* Dizzy: X eyes drawn with pseudo-element strokes, wobbling stem, two
+ * stars orbiting the crown. */
+.cute-robot-dizzy .cute-robot-eye {
+  background: transparent;
+  animation: none;
+  position: relative;
+}
+
+.cute-robot-dizzy .cute-robot-eye::before,
+.cute-robot-dizzy .cute-robot-eye::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 19px;
+  height: 4.5px;
+  margin: -2.25px 0 0 -9.5px;
+  border-radius: 2px;
+  background: #1890ff;
+}
+
+.cute-robot-dizzy .cute-robot-eye::before {
+  transform: rotate(45deg);
+}
+
+.cute-robot-dizzy .cute-robot-eye::after {
+  transform: rotate(-45deg);
+}
+
+.cute-robot-dizzy .cute-robot-antenna {
+  transform-origin: 50% 100%;
+  animation: cute-robot-wobble 0.5s ease-in-out infinite;
+}
+
+@keyframes cute-robot-wobble {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+.cute-robot-orbit {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  width: 120px;
+  height: 44px;
+  margin-left: -60px;
+  pointer-events: none;
+}
+
+.cute-robot-dizzy .cute-robot-orbit {
+  display: block;
+  animation: cute-robot-orbitspin 1.1s linear infinite;
+}
+
+.cute-robot-star {
+  position: absolute;
+  top: 14px;
+  font-size: 0;
+}
+
+.cute-robot-star::before {
+  content: "\2736";
+  font-size: 16px;
+  font-weight: 700;
+  color: #1890ff;
+}
+
+.cute-robot-star-b {
+  right: 0;
+}
+
+.cute-robot-star:not(.cute-robot-star-b) {
+  left: 0;
+}
+
+.cute-robot-star-b::before {
+  color: #40a9ff;
+}
+
+@keyframes cute-robot-orbitspin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Glitched: the whole robot jitters in coarse steps, the ball strobes. */
+.cute-robot-glitched .cute-robot-robot {
+  animation: cute-robot-glitch 0.12s steps(2) infinite;
+}
+
+@keyframes cute-robot-glitch {
+  0% {
+    opacity: 1;
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 0.55;
+    transform: translateX(2px);
+  }
+}
+
+.cute-robot-glitched .cute-robot-antenna::before {
+  animation: cute-robot-glitchball 0.12s steps(2) infinite;
+}
+
+@keyframes cute-robot-glitchball {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* Rebooting: eyes closed to lines, three dots cycling below the head. */
+.cute-robot-rebooting .cute-robot-eye {
+  height: 4px;
+  border-radius: 2px;
+  animation: none;
+}
+
+.cute-robot-dots {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -24px;
+  white-space: nowrap;
+}
+
+.cute-robot-rebooting .cute-robot-dots {
+  display: block;
+}
+
+.cute-robot-dots span {
+  font-size: 0;
+}
+
+.cute-robot-dots span::before {
+  content: "\00b7";
+  font-size: 22px;
+  font-weight: 700;
+  color: #1890ff;
+  opacity: 0.2;
+}
+
+.cute-robot-rebooting .cute-robot-dots span::before {
+  animation: cute-robot-dotcycle 0.9s infinite;
+}
+
+.cute-robot-rebooting .cute-robot-dots span:nth-child(2)::before {
+  animation-delay: 0.3s;
+}
+
+.cute-robot-rebooting .cute-robot-dots span:nth-child(3)::before {
+  animation-delay: 0.6s;
+}
+
+@keyframes cute-robot-dotcycle {
+  0%,
+  60%,
+  100% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+/* One-shot effects: the consumer spawns a span with the class, positions
+ * it absolutely, and removes it on animationend. Glyphs come from
+ * ::before content so consumers never type special characters. */
+.cute-robot-spark {
+  position: absolute;
+  pointer-events: none;
+  font-size: 0;
+  animation: cute-robot-sparkpop 0.9s ease-out forwards;
+}
+
+.cute-robot-spark::before {
+  content: "\2726";
+  font-size: 16px;
+  font-weight: 700;
+  color: #1890ff;
+}
+
+@keyframes cute-robot-sparkpop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.25) rotate(20deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(45deg) translateY(-8px);
+  }
+}
+
+.cute-robot-bang {
+  position: absolute;
+  pointer-events: none;
+  font-size: 0;
+  animation: cute-robot-bangpop 0.7s ease-out forwards;
+}
+
+.cute-robot-bang::before {
+  content: "!";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1890ff;
+}
+
+@keyframes cute-robot-bangpop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.4) rotate(8deg);
+  }
+  35% {
+    transform: scale(1) rotate(-3deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translateY(-10px);
+  }
+}
+
+/* Dash afterimage: a fading outline of the head at 1:1 rig scale;
+ * consumers scale it alongside the rig. */
+.cute-robot-ghost {
+  position: absolute;
+  pointer-events: none;
+  width: 109px;
+  height: 78px;
+  border: 5px solid #555;
+  border-radius: 20px;
+  opacity: 0.28;
+  animation: cute-robot-ghostfade 0.4s ease-out forwards;
+}
+
+@keyframes cute-robot-ghostfade {
+  to {
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cute-robot-q,
-  .cute-robot-z,
+  .cute-robot-antenna,
   .cute-robot-antenna::before,
-  .cute-robot-eye {
+  .cute-robot-eye,
+  .cute-robot-robot,
+  .cute-robot-orbit,
+  .cute-robot-dots span::before,
+  .cute-robot-spark,
+  .cute-robot-bang,
+  .cute-robot-ghost {
     animation: none;
   }
 
   /* Z's are animation-born (base opacity 0); pin one visible frame so
    * the sleepy mood keeps its emanata as a static image. */
-  .cute-robot-z {
+  .cute-robot-sleepy .cute-robot-z {
     opacity: 1;
     transform: translate(calc(var(--z-x) + 5px), calc(var(--z-y) - 8px));
   }
