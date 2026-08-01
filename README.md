@@ -77,6 +77,16 @@ The living animated implementation is the `CuteRobot` React component in the
 | Rebooting | <img src="dist/portfolio-blue/henry-illustration-rebooting.svg" width="140" alt="Rebooting Henry with closed eyes and cycling dots, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-rebooting.svg" width="140" alt="Rebooting Henry with closed eyes and cycling dots, amber"> |
 | Low battery | <img src="dist/portfolio-blue/henry-illustration-low-battery.svg" width="140" alt="Low-battery Henry with an unlit antenna and a battery icon, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-low-battery.svg" width="140" alt="Low-battery Henry with an unlit antenna and a battery icon, amber"> |
 
+## Stasis containment unit
+
+A two-layer game asset for the blog's hidden stasis page: a bolted
+containment unit whose window holds the living sleepy Henry. Ships per
+colorway as `henry-stasis-unit-back.svg`, `henry-stasis-unit-front.svg`,
+and `henry-stasis-unit.css`; the CSS header documents the consumer
+markup and the five state classes (`henry-stasis-fresh`, `-cracked-1`,
+`-cracked-2`, `-open`, `-patched`). Consumers inline both SVG layers and
+sandwich the `cute-robot-sleepy` markup between them.
+
 ## Palettes
 
 Henry has one official colorway per site. His head is always white; ground and accent change.

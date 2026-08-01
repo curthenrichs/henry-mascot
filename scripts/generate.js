@@ -23,6 +23,7 @@ const ROOT = path.join(__dirname, "..");
 const ART = path.join(ROOT, "artwork");
 const DIST = path.join(ROOT, "dist");
 const ANIMATED_CSS_SRC = path.join(ART, "henry-animated.css");
+const UNIT_CSS_SRC = path.join(ART, "henry-stasis-unit.css");
 
 const CANON = { ground: "#112244", accent: "#1890ff", accentSoft: "#40a9ff" };
 const OUTLINE = "#555555";
@@ -38,6 +39,13 @@ const ICON_MASTERS = {
   master: "henry-master.svg",
   px32: "henry-32.svg",
   px16: "henry-16.svg",
+};
+
+// Stasis containment unit, two stacked layers (a living Henry renders
+// between them). SVG-only output; no PNG export.
+const UNIT_MASTERS = {
+  "unit:back": "henry-stasis-unit-back.svg",
+  "unit:front": "henry-stasis-unit-front.svg",
 };
 
 // One master per illustration mood: artwork/henry-illustration-<mood>.svg.
@@ -83,7 +91,7 @@ const illoSvgFile = (mood) => `henry-illustration-${mood}.svg`;
 const illoPngFile = (mood) => `henry-illustration-${mood}.png`;
 
 function allMasters() {
-  const masters = { ...ICON_MASTERS };
+  const masters = { ...ICON_MASTERS, ...UNIT_MASTERS };
   for (const mood of ILLUSTRATION_MOODS) masters[illoKey(mood)] = illoSvgFile(mood);
   return masters;
 }
@@ -112,7 +120,7 @@ function validateMasters() {
     if (/<text[\s>]/.test(text)) {
       throw new Error(`${file}: contains a <text> element; draw glyphs as stroke paths`);
     }
-    if (key.startsWith("illo:")) {
+    if (key.startsWith("illo:") || key.startsWith("unit:")) {
       if (!text.includes(CANON.accent)) {
         throw new Error(`${file}: canonical accent ${CANON.accent} not found; recoloring would no-op`);
       }
@@ -124,6 +132,10 @@ function validateMasters() {
   const animated = fs.readFileSync(ANIMATED_CSS_SRC, "utf8");
   if (!animated.includes(CANON.accent)) {
     throw new Error("henry-animated.css: canonical accent not found; recoloring would no-op");
+  }
+  const unitCss = fs.readFileSync(UNIT_CSS_SRC, "utf8");
+  if (!unitCss.includes(CANON.accent)) {
+    throw new Error("henry-stasis-unit.css: canonical accent not found; recoloring would no-op");
   }
 }
 
@@ -189,6 +201,9 @@ async function buildVariant(variant) {
   const animatedCss = recolor(fs.readFileSync(ANIMATED_CSS_SRC, "utf8"), variant);
   fs.writeFileSync(path.join(dir, "henry-animated.css"), animatedCss);
 
+  const unitStateCss = recolor(fs.readFileSync(UNIT_CSS_SRC, "utf8"), variant);
+  fs.writeFileSync(path.join(dir, "henry-stasis-unit.css"), unitStateCss);
+
   // ---- verification: wrong output is a hard failure ----
   for (const { file, source, width } of outputs) {
     const expectedHeight = outputHeight(svgs[source], width);
@@ -206,7 +221,7 @@ async function buildVariant(variant) {
   }
 
   console.log(
-    `${variant.name}: ${outputs.length} PNGs + favicon.ico (${ICO_LAYERS.map((l) => l.width).join("/")}) + ${Object.keys(svgs).length} SVGs + henry-animated.css`
+    `${variant.name}: ${outputs.length} PNGs + favicon.ico (${ICO_LAYERS.map((l) => l.width).join("/")}) + ${Object.keys(svgs).length} SVGs + henry-animated.css + henry-stasis-unit.css`
   );
 }
 

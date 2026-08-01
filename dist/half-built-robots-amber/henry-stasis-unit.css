@@ -1,0 +1,132 @@
+/* Henry -- stasis containment unit, state contract. Colorway-templated
+ * like henry-animated.css: generate.js recolors #ffaa3c per variant;
+ * #555555 and #ffffff are palette-invariant. Consumers inline the two
+ * SVG layers with a living Henry sandwiched between:
+ *
+ *   <span class="henry-stasis-unit henry-stasis-fresh">
+ *     [henry-stasis-unit-back.svg inlined]
+ *     <span class="henry-stasis-henry"> [cute-robot sleepy markup] </span>
+ *     <span class="henry-stasis-layer-front"> [front svg inlined] </span>
+ *   </span>
+ *
+ * Exactly one state class rides alongside henry-stasis-unit:
+ * henry-stasis-fresh | -cracked-1 | -cracked-2 | -open | -patched.
+ * Every state must read as a static image; reduced-motion consumers
+ * kill the transitions. */
+.henry-stasis-unit {
+  position: relative;
+  display: block;
+}
+
+.henry-stasis-unit svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.henry-stasis-layer-front {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* The window rect is x55 y72 w120 h120 in the 260x300 viewBox; the slot
+ * maps those proportions so Henry sits behind the glass. The overflow
+ * clip keeps his Z's inside the window. */
+.henry-stasis-henry {
+  position: absolute;
+  left: 21.15%;
+  top: 24%;
+  width: 46.15%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.henry-stasis-henry .cute-robot-container {
+  transform: scale(0.62);
+}
+
+/* Damage and repair marks are hidden until their state shows them */
+.unit-crack-a,
+.unit-crack-b,
+.unit-scar-a,
+.unit-scar-b,
+.unit-tape,
+.unit-frame-empty {
+  visibility: hidden;
+}
+
+.henry-stasis-cracked-1 .unit-crack-a,
+.henry-stasis-cracked-2 .unit-crack-a,
+.henry-stasis-cracked-2 .unit-crack-b,
+.henry-stasis-open .unit-crack-a,
+.henry-stasis-open .unit-crack-b {
+  visibility: visible;
+}
+
+.henry-stasis-open .unit-frame-empty {
+  visibility: visible;
+}
+
+.henry-stasis-patched .unit-scar-a,
+.henry-stasis-patched .unit-scar-b,
+.henry-stasis-patched .unit-tape {
+  visibility: visible;
+}
+
+/* The door swings ajar on its lower-left hinge at breach */
+.unit-door {
+  transform-box: view-box;
+  transform-origin: 60px 192px;
+  transition: transform 0.5s ease;
+}
+
+.henry-stasis-open .unit-door {
+  transform: rotate(-14deg);
+}
+
+.unit-tint {
+  transition: opacity 0.4s ease;
+}
+
+.henry-stasis-open .unit-tint {
+  opacity: 0;
+}
+
+.henry-stasis-open .henry-stasis-henry {
+  opacity: 0;
+}
+
+/* Indicator lights: holding lit while contained, alert lit once out */
+.unit-light-holding {
+  fill: #ffaa3c;
+}
+
+.unit-light-alert {
+  fill: none;
+  stroke: #555555;
+  stroke-width: 2.5px;
+}
+
+.henry-stasis-open .unit-light-holding {
+  fill: none;
+  stroke: #555555;
+  stroke-width: 2.5px;
+}
+
+.henry-stasis-open .unit-light-alert {
+  fill: #ffaa3c;
+  stroke: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unit-door,
+  .unit-tint,
+  .henry-stasis-henry {
+    transition: none;
+  }
+}
