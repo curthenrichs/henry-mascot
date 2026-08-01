@@ -2,8 +2,9 @@
  * recolors #ffaa3c/#ffc46e per variant; #555 outline and #fff head are
  * palette-invariant. Consumers render the cute-robot- markup (container >
  * robot > antenna + head > 2 eyes, plus 2 question spans for the confused
- * pose) documented here; that class contract is the interface. The
- * portfolio's CuteRobot.jsx and its prerender veil both consume this. */
+ * pose or 3 Z spans for the sleepy pose) documented here; that class
+ * contract is the interface. The portfolio's CuteRobot.jsx and its
+ * prerender veil both consume this. */
 .cute-robot-container {
   display: inline-flex;
   flex-direction: column;
@@ -146,8 +147,105 @@
   }
 }
 
+/* Sleepy: half-lidded eyes, tilted antenna with a faded ball, and a
+ * stream of Z's popping out near the crown, drifting up-right, and
+ * fading (expression doc, sleepy row). Z's enter with overshoot;
+ * nothing snaps. Body stays still here too, per the same design
+ * feedback as friendly. Headroom padding mirrors the question marks. */
+.cute-robot-sleepy {
+  padding-top: 56px;
+}
+
+.cute-robot-sleepy .cute-robot-antenna {
+  transform: rotate(-16deg);
+  transform-origin: 50% 100%;
+}
+
+.cute-robot-sleepy .cute-robot-antenna::before {
+  animation: none;
+  opacity: 0.5;
+}
+
+.cute-robot-sleepy .cute-robot-eye {
+  height: 8.5px;
+  border-radius: 0 0 8.5px 8.5px;
+  transform: translateY(4px);
+  animation: cute-robot-sleepy-blink 6.4s infinite;
+}
+
+/* One long drowsy squeeze late in a slow cycle */
+@keyframes cute-robot-sleepy-blink {
+  0%,
+  88%,
+  100% {
+    transform: translateY(4px) scaleY(1);
+  }
+  94% {
+    transform: translateY(4px) scaleY(0.15);
+  }
+}
+
+.cute-robot-z {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffaa3c;
+  opacity: 0;
+  transform: translate(var(--z-x), var(--z-y)) scale(0.6);
+  animation: cute-robot-z-drift 4.2s ease-out infinite;
+}
+
+.cute-robot-z-a {
+  --z-x: 26px;
+  --z-y: 12px;
+  font-size: 30px;
+}
+
+.cute-robot-z-b {
+  --z-x: 50px;
+  --z-y: 4px;
+  font-size: 22px;
+  color: #ffc46e;
+  animation-delay: -1.4s;
+}
+
+.cute-robot-z-c {
+  --z-x: 68px;
+  --z-y: -2px;
+  font-size: 16px;
+  color: #ffc46e;
+  animation-delay: -2.8s;
+}
+
+/* Pop in with overshoot near the crown, then drift up and right while
+ * fading out; per-span vars place and size each Z (the question-mark
+ * pattern). Staggered delays keep a continuous stream rising. */
+@keyframes cute-robot-z-drift {
+  0% {
+    opacity: 0;
+    transform: translate(var(--z-x), var(--z-y)) scale(0.6);
+  }
+  8% {
+    opacity: 1;
+    transform: translate(calc(var(--z-x) + 3px), calc(var(--z-y) - 5px)) scale(1.15);
+  }
+  16% {
+    opacity: 1;
+    transform: translate(calc(var(--z-x) + 5px), calc(var(--z-y) - 8px)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--z-x) + 28px), calc(var(--z-y) - 46px)) scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cute-robot-q,
+  .cute-robot-z,
   .cute-robot-antenna::before,
   .cute-robot-eye {
     animation: none;

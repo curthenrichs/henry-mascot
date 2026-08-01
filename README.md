@@ -40,9 +40,10 @@ He comes in two forms:
   live in the [expression design doc](docs/superpowers/specs/2026-07-03-henry-expressions-design.md).
   The two load-bearing rules: the antenna must agree with the eyes (it's the mood
   barometer), and the antenna tip stays a glowing ball except in robot moods, where it
-  may swap to hardware (a plug, a dish, a spark). *Friendly* (blinking, pulsing) and
-  *confused* (question marks, boing) remain the two moods with living animated
-  implementations in the portfolio's `CuteRobot` component.
+  may swap to hardware (a plug, a dish, a spark). *Friendly* (blinking, pulsing),
+  *confused* (question marks, boing), and *sleepy* (floating Z's, slow blinks)
+  have living animated implementations; the first two live in the portfolio's
+  `CuteRobot` component, sleepy in the blog's stasis page.
 
 The living animated implementation is the `CuteRobot` React component in the
 [portfolio repo](https://github.com/curthenrichs/curthenrichs.github.io)
