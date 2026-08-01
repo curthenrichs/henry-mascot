@@ -534,10 +534,18 @@
   .cute-robot-eye,
   .cute-robot-robot,
   .cute-robot-orbit,
-  .cute-robot-dots span::before,
   .cute-robot-spark,
   .cute-robot-bang,
-  .cute-robot-ghost {
+  .cute-robot-ghost,
+  .cute-robot-sleepy .cute-robot-z,
+  .cute-robot-sleepy .cute-robot-eye,
+  .cute-robot-sleepy .cute-robot-antenna::before,
+  .cute-robot-surprised .cute-robot-antenna::before,
+  .cute-robot-dizzy .cute-robot-antenna,
+  .cute-robot-dizzy .cute-robot-orbit,
+  .cute-robot-glitched .cute-robot-robot,
+  .cute-robot-glitched .cute-robot-antenna::before,
+  .cute-robot-rebooting .cute-robot-dots span::before {
     animation: none;
   }
 
