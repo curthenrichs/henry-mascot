@@ -46,9 +46,11 @@ He comes in two forms:
   portfolio's `CuteRobot` component consumes the first two, the blog's
   stasis easter egg the rest.
 
-The living animated implementation is the `CuteRobot` React component in the
+The `CuteRobot` React component in the
 [portfolio repo](https://github.com/curthenrichs/curthenrichs.github.io)
-(`src/components/CuteRobot.jsx`), which also documents the animation timings.
+(`src/components/CuteRobot.jsx`) is the original living-form consumer and
+documents its animation timings; the blog's stasis easter egg consumes the
+newer moods directly from `henry-animated.css`.
 
 ## Gallery
 
