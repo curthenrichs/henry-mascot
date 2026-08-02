@@ -56,7 +56,8 @@
 .unit-scar-a,
 .unit-scar-b,
 .unit-tape,
-.unit-frame-empty {
+.unit-frame-empty,
+.unit-hinge {
   visibility: hidden;
 }
 
@@ -68,7 +69,8 @@
   visibility: visible;
 }
 
-.henry-stasis-open .unit-frame-empty {
+.henry-stasis-open .unit-frame-empty,
+.henry-stasis-open .unit-hinge {
   visibility: visible;
 }
 
