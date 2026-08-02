@@ -527,6 +527,72 @@
   }
 }
 
+/* Shield: the hex force field that eats blocked clicks during
+ * invincibility. Flat build: accent ring, translucent hexagon core,
+ * six vertex studs. The consumer positions the span and removes it on
+ * animationend. */
+.cute-robot-shield {
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  border: 3px solid #1890ff;
+  border-radius: 50%;
+  background: #1890ff14;
+  pointer-events: none;
+  animation: cute-robot-shieldpop 0.55s ease-out forwards;
+}
+
+.cute-robot-shield::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  background: #1890ff;
+  opacity: 0.3;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.cute-robot-shield::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: #1890ff;
+  box-shadow:
+    0 -34px 0 0 #1890ff,
+    29px -17px 0 0 #1890ff,
+    29px 17px 0 0 #1890ff,
+    0 34px 0 0 #1890ff,
+    -29px 17px 0 0 #1890ff,
+    -29px -17px 0 0 #1890ff;
+}
+
+@keyframes cute-robot-shieldpop {
+  0% {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  22% {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+  42% {
+    opacity: 0.9;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cute-robot-q,
   .cute-robot-antenna,
@@ -537,6 +603,7 @@
   .cute-robot-spark,
   .cute-robot-bang,
   .cute-robot-ghost,
+  .cute-robot-shield,
   .cute-robot-sleepy .cute-robot-z,
   .cute-robot-sleepy .cute-robot-eye,
   .cute-robot-sleepy .cute-robot-antenna::before,
