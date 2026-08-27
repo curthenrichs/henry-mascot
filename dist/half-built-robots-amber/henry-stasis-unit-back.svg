@@ -3,7 +3,9 @@
        window tint, dashed empty frame (open state), indicator panel,
        vented plinth. The hinged glass door lives in
        henry-stasis-unit-front.svg; a living Henry sits between the two
-       layers. State classes are documented in henry-stasis-unit.css. -->
+       layers. State classes are documented in henry-stasis-unit.css.
+       The window tint is the containment field color (#3cc7dd in the
+       canonical palette, recolored per variant), not the accent. -->
   <path d="M 100 45 Q 130 22 160 45" fill="none" stroke="#555555" stroke-width="5" stroke-linecap="round"/>
   <rect x="35" y="45" width="190" height="185" rx="14" fill="#ffffff" stroke="#555555" stroke-width="5"/>
   <g fill="#555555">
@@ -12,7 +14,7 @@
     <circle cx="52" cy="213" r="4"/>
     <circle cx="208" cy="213" r="4"/>
   </g>
-  <rect class="unit-tint" x="57" y="74" width="116" height="116" rx="6" fill="#ffaa3c" fill-opacity="0.14"/>
+  <rect class="unit-tint" x="57" y="74" width="116" height="116" rx="6" fill="#3cc7dd" fill-opacity="0.16"/>
   <rect class="unit-frame-empty" x="55" y="72" width="120" height="120" rx="8" fill="none" stroke="#555555" stroke-width="3" stroke-dasharray="9 7"/>
   <rect x="185" y="78" width="26" height="62" rx="5" fill="#ffffff" stroke="#555555" stroke-width="3"/>
   <circle class="unit-light-holding" cx="198" cy="92" r="5"/>

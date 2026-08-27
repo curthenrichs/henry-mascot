@@ -90,6 +90,12 @@ markup and the five state classes (`henry-stasis-fresh`, `-cracked-1`,
 `-cracked-2`, `-open`, `-patched`). Consumers inline both SVG layers and
 sandwich the `cute-robot-sleepy` markup between them.
 
+The unit is the one asset that uses the palette's second slot. The
+containment field (the window tint and the holding lamp) wears the
+**field** color while Henry is held; the alert lamp that lights once he
+is out, and the repair tape of the patched state, keep the site accent.
+Cold while contained, warm once loose.
+
 ## Palettes
 
 Henry has one official colorway per site. His head is always white; ground and accent change.
@@ -99,6 +105,7 @@ Henry has one official colorway per site. His head is always white; ground and a
 | Ground (icon form) | `#112244` navy (sampled from the site's original favicon) | `#111111` near-black (theme's terminal aesthetic) |
 | Accent (eyes, antenna tip, glow) | `#1890ff` (Ant Design primary blue) | `#ffaa3c` (theme `--primary-color`) |
 | Secondary accent (small question mark) | `#40a9ff` (Ant Design blue-5) | `#ffc46e` (lighter amber, defined in this repo) |
+| Containment field (stasis window tint, holding lamp) | `#13c2c2` (Ant Design cyan-6) | `#3cc7dd` (theme `--accent-2`, the blog's cyan second accent) |
 | Head | `#ffffff` | `#ffffff` |
 | Outline + stem (illustration form) | `#555555` | `#555555` |
 | Glow halo | accent @ 22% (512, illustrations) / 28% (32px) opacity | same |

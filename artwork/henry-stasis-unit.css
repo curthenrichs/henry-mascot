@@ -1,6 +1,9 @@
 /* Henry -- stasis containment unit, state contract. Colorway-templated
- * like henry-animated.css: generate.js recolors #1890ff per variant;
- * #555555 and #ffffff are palette-invariant. Consumers inline the two
+ * like henry-animated.css: generate.js recolors #1890ff (the accent) and
+ * #13c2c2 (the containment field) per variant; #555555 and #ffffff are
+ * palette-invariant. The field colors the window tint and the holding
+ * lamp while Henry is held; the accent is reserved for the alert lamp
+ * once he is out, and for the repair tape. Consumers inline the two
  * SVG layers with a living Henry sandwiched between:
  *
  *   <span class="henry-stasis-unit henry-stasis-fresh">
@@ -103,9 +106,10 @@
   opacity: 0;
 }
 
-/* Indicator lights: holding lit while contained, alert lit once out */
+/* Indicator lights: the holding lamp glows in the field color while
+ * contained, the alert lamp in the accent once out */
 .unit-light-holding {
-  fill: #1890ff;
+  fill: #13c2c2;
 }
 
 .unit-light-alert {

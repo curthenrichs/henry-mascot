@@ -25,14 +25,19 @@ const DIST = path.join(ROOT, "dist");
 const ANIMATED_CSS_SRC = path.join(ART, "henry-animated.css");
 const UNIT_CSS_SRC = path.join(ART, "henry-stasis-unit.css");
 
-const CANON = { ground: "#112244", accent: "#1890ff", accentSoft: "#40a9ff" };
+// `field` is the stasis unit's containment color (window tint, holding
+// lamp), a second accent slot distinct from `accent` so the alert lamp
+// and the repair tape keep the site accent while the field runs cold.
+const CANON = { ground: "#112244", accent: "#1890ff", accentSoft: "#40a9ff", field: "#13c2c2" };
 const OUTLINE = "#555555";
 
 const VARIANTS = [
-  // curthenrichs.github.io — navy ground, Ant Design primary blue accent
-  { name: "portfolio-blue", ground: "#112244", accent: "#1890ff", accentSoft: "#40a9ff" },
-  // half-built-robots.com — terminal near-black ground, theme amber accent
-  { name: "half-built-robots-amber", ground: "#111111", accent: "#ffaa3c", accentSoft: "#ffc46e" },
+  // curthenrichs.github.io — navy ground, Ant Design primary blue accent,
+  // Ant Design cyan-6 field
+  { name: "portfolio-blue", ground: "#112244", accent: "#1890ff", accentSoft: "#40a9ff", field: "#13c2c2" },
+  // half-built-robots.com — terminal near-black ground, theme amber accent,
+  // the theme's cyan second accent (--accent-2) as the field
+  { name: "half-built-robots-amber", ground: "#111111", accent: "#ffaa3c", accentSoft: "#ffc46e", field: "#3cc7dd" },
 ];
 
 const ICON_MASTERS = {
@@ -104,9 +109,19 @@ function parseViewBox(file, text) {
 
 // Hexes belonging to non-canonical variants. A master containing one was
 // authored in the wrong palette and would survive recoloring untouched.
-const FOREIGN_HEXES = VARIANTS.flatMap((v) => [v.ground, v.accent, v.accentSoft]).filter(
+const FOREIGN_HEXES = VARIANTS.flatMap((v) => [v.ground, v.accent, v.accentSoft, v.field]).filter(
   (hex) => !Object.values(CANON).includes(hex)
 );
+
+// Which canonical hexes each templated master must carry, so a recolor
+// can never silently no-op. Illustrations carry the accent; the unit's
+// back layer carries the field (its tint), the front layer the accent
+// (its tape).
+function requiredHexes(key) {
+  if (key === "unit:back") return { field: CANON.field };
+  if (key === "unit:front" || key.startsWith("illo:")) return { accent: CANON.accent };
+  return {};
+}
 
 function validateMasters() {
   for (const [key, file] of Object.entries(allMasters())) {
@@ -120,10 +135,12 @@ function validateMasters() {
     if (/<text[\s>]/.test(text)) {
       throw new Error(`${file}: contains a <text> element; draw glyphs as stroke paths`);
     }
-    if (key.startsWith("illo:") || key.startsWith("unit:")) {
-      if (!text.includes(CANON.accent)) {
-        throw new Error(`${file}: canonical accent ${CANON.accent} not found; recoloring would no-op`);
+    for (const [name, hex] of Object.entries(requiredHexes(key))) {
+      if (!text.includes(hex)) {
+        throw new Error(`${file}: canonical ${name} ${hex} not found; recoloring would no-op`);
       }
+    }
+    if (key.startsWith("illo:") || key.startsWith("unit:")) {
       if (!text.includes(OUTLINE)) {
         throw new Error(`${file}: outline ${OUTLINE} not found; illustration form requires it`);
       }
@@ -134,8 +151,10 @@ function validateMasters() {
     throw new Error("henry-animated.css: canonical accent not found; recoloring would no-op");
   }
   const unitCss = fs.readFileSync(UNIT_CSS_SRC, "utf8");
-  if (!unitCss.includes(CANON.accent)) {
-    throw new Error("henry-stasis-unit.css: canonical accent not found; recoloring would no-op");
+  for (const name of ["accent", "field"]) {
+    if (!unitCss.includes(CANON[name])) {
+      throw new Error(`henry-stasis-unit.css: canonical ${name} not found; recoloring would no-op`);
+    }
   }
 }
 
@@ -143,7 +162,8 @@ function recolor(svgText, variant) {
   return svgText
     .split(CANON.ground).join(variant.ground)
     .split(CANON.accent).join(variant.accent)
-    .split(CANON.accentSoft).join(variant.accentSoft);
+    .split(CANON.accentSoft).join(variant.accentSoft)
+    .split(CANON.field).join(variant.field);
 }
 
 function loadVariantSvgs(variant) {
