@@ -148,8 +148,9 @@ dist/               committed generated output; consumers vendor from here
 
 Each `dist/<variant>/` contains: `favicon.ico` (16/32/48 layers), `favicon-16x16.png`,
 `favicon-32x32.png`, `apple-touch-icon.png` (180), `android-chrome-192x192.png`,
-`android-chrome-512x512.png`, one transparent illustration PNG per mood (4× the master's viewBox width), plus recolored
-copies of all eighteen SVGs. Illustration emanata (question marks, sparkles, hearts, and
+`android-chrome-512x512.png`, one transparent illustration PNG per mood (4× the master's viewBox width), recolored
+copies of all the SVGs (masters, pixel-fitted sizes, mood portraits, and the stasis-unit
+front/back art), and the animation stylesheets (`henry-animated.css`, `henry-stasis-unit.css`). Illustration emanata (question marks, sparkles, hearts, and
 the rest) are stroke-drawn paths, not text, so they render identically everywhere with no
 font dependency.
 
@@ -163,15 +164,15 @@ npm run generate
 The generator hard-fails on any wrong dimension or ICO layer count. Never hand-edit files in
 `dist/`. Change the masters (or a variant's palette) and regenerate.
 
-Note: this repo lives under a path with spaces on the maintainer's machine, so avoid `npx`.
-Plain `npm run` and `node scripts/generate.js` work fine.
-
 ## Consumers
 
+- **half-built-robots.com** (the Astro blog) vendors the full `dist/half-built-robots-amber/`
+  colorway: the favicon set, the mood poses, the stasis-unit art, and both animation
+  stylesheets. The exact file list lives in that repo's README, Mascot section.
 - **curthenrichs.github.io** vendors the `dist/portfolio-blue/` icon files into `public/`
   (filenames match one-to-one).
-- **half-built-robots.com** (WordPress): upload `dist/half-built-robots-amber/android-chrome-512x512.png`
-  as the Site Icon (Appearance → Customize → Site Identity) and WordPress derives the rest.
+- **The Bead Reserve** (public repo) vendors `henry-master.svg` into `site/brand/vendor/`
+  under its license's brand-assets exception.
 
 ## License
 
