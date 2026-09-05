@@ -1,0 +1,13 @@
+Copyright (c) 2026 Curt Henrichs. All rights reserved.
+
+Henry (the character, the name, and the artwork), including the source
+art, the generator's outputs under dist/, and every derivative of them,
+is proprietary. No license is granted to use, copy, modify, publish, or
+distribute Henry or any derivative outside repositories maintained by
+Curt Henrichs. Repositories that vendor Henry's generated outputs do so
+under an explicit exception in their own licenses naming these assets;
+those exceptions do not extend any rights to third parties.
+
+As described in the README, the generator script's pattern may be
+freely adapted for your own, different mascot. That allowance covers
+the approach, not Henry's artwork or any file in this repository.
