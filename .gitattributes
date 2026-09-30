@@ -1,0 +1,15 @@
+# Line-ending policy: LF in the repository and on checkout. Same policy as
+# half-built-robots-blog, half-built-ui and the-bead-reserve-monorepo, so
+# Windows tooling cannot scatter CRLF into the masters or dist/ (every
+# consumer vendors dist/ byte for byte).
+
+* text=auto eol=lf
+
+# Binary assets, never normalized. SVG stays text: it is XML, and LF keeps
+# the vendored copies identical across platforms.
+*.png   binary
+*.ico   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
