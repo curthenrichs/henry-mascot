@@ -38,7 +38,7 @@ exists to prevent.
 
 ## Licensing boundary
 
-Henry is © Curt Henrichs, all rights reserved (see LICENSE). He is
+Henry is © Curt Henrichs LLC, all rights reserved (see LICENSE). He is
 deliberately NOT covered by the permissive licenses of the repos that
 vendor him; each of those carries an explicit exception or
 all-rights-reserved notice naming him. Any NEW repo that vendors Henry

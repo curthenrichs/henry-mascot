@@ -176,6 +176,6 @@ The generator hard-fails on any wrong dimension or ICO layer count. Never hand-e
 
 ## License
 
-Henry (the character, the name, and the artwork) is © Curt Henrichs, all rights reserved. He's a
+Henry (the character, the name, and the artwork) is © Curt Henrichs LLC, all rights reserved. He's a
 brand mascot, not clip art, so please don't reuse him for other projects. The generator script is
 trivial plumbing; feel free to adapt that pattern for your own mascot.
