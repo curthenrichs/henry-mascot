@@ -24,11 +24,13 @@ exists to prevent.
   with their source documented in the README's Palettes section. Never
   recolor by editing SVGs.
 - New moods follow the expression grammar (eye shape, antenna state,
-  stroke-drawn emanata):
-  `docs/superpowers/specs/2026-07-03-henry-expressions-design.md`.
-  The README's Design rules section carries the brand constraints
-  (no outline on dark grounds, glow only at 32px and up, pixel-fitted
-  small sizes, antenna always present); they bind here too.
+  stroke-drawn emanata), written out in the README's Expression
+  grammar section. The README's Design rules section carries the brand
+  constraints (no outline on dark grounds, glow only at 32px and up,
+  pixel-fitted small sizes, antenna always present); they bind here too.
+- Specs and plans under `docs/superpowers/` are local working files,
+  gitignored and never committed. Anything lasting goes in the README
+  or here.
 - Emanata are stroke-drawn paths, never text, so output has no font
   dependency.
 - This repo's path contains spaces on the maintainer's machine, so

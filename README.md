@@ -36,8 +36,8 @@ He comes in two forms:
 - **Antenna:** a single stem with a glowing accent-colored tip. This is Henry's signature and
   it never comes off
 - **Moods:** every expression is a combination of three channels — eye shape, antenna
-  state, and stroke-drawn manga symbols (emanata). The grammar and the per-mood specs
-  live in the [expression design doc](docs/superpowers/specs/2026-07-03-henry-expressions-design.md).
+  state, and stroke-drawn manga symbols (emanata). The grammar is under
+  [Expression grammar](#expression-grammar) below.
   The two load-bearing rules: the antenna must agree with the eyes (it's the mood
   barometer), and the antenna tip stays a glowing ball except in robot moods, where it
   may swap to hardware (a plug, a dish, a spark). *Friendly*, *confused*,
@@ -79,6 +79,33 @@ newer moods directly from `henry-animated.css`.
 | Broadcasting | <img src="dist/portfolio-blue/henry-illustration-broadcasting.svg" width="140" alt="Henry broadcasting signal waves from his antenna, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-broadcasting.svg" width="140" alt="Henry broadcasting signal waves from his antenna, amber"> |
 | Rebooting | <img src="dist/portfolio-blue/henry-illustration-rebooting.svg" width="140" alt="Rebooting Henry with closed eyes and cycling dots, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-rebooting.svg" width="140" alt="Rebooting Henry with closed eyes and cycling dots, amber"> |
 | Low battery | <img src="dist/portfolio-blue/henry-illustration-low-battery.svg" width="140" alt="Low-battery Henry with an unlit antenna and a battery icon, portfolio-blue"> | <img src="dist/half-built-robots-amber/henry-illustration-low-battery.svg" width="140" alt="Low-battery Henry with an unlit antenna and a battery icon, amber"> |
+
+## Expression grammar
+
+Every mood combines three channels: eyes, antenna, and emanata (the floating manga
+symbols). *Friendly* is round dots, a perky ball, and no symbols. *Confused* is the same
+plus a double question mark.
+
+**Eyes.** Round dots by default. The other shapes are closed happy arcs, squeezed `> <`,
+X-eyes, and lowered or half-lidded dots. Size and position can shift (oversized for
+surprise, drooped for sadness). Henry never gets a mouth.
+
+**Antenna.** It's his only appendage, so it works as the mood barometer. It shows mood
+through its angle (perky by default, ramrod straight when alert, drooping when sad or
+tired), its glow (brightness, halo size, blink pattern), and its tip. In the emotional
+moods (friendly through pouty in the gallery) the tip is always the glowing ball. In the
+robot moods (glitched through low battery) it can swap to hardware, like a plug or a
+spark. The antenna has to agree with the eyes. A drooping antenna with happy eyes reads
+as broken, not as a mood.
+
+**Emanata.** Symbols float above or beside the head, placed per pose. The vocabulary so
+far is `?`, `!`, a sweat drop or tear, Zzz, sparkles, hearts, dizzy stars, the anger
+vein, `)))` signal waves, static scribbles, cycling dots, and a battery icon. They are
+stroke-drawn paths, never text, so nothing depends on a font. The main symbol takes the
+accent color and any companions take the secondary accent.
+
+**Animation.** An animated mood keeps a small idle bob or sway under its main motion, the
+way *friendly* keeps blinking. Symbols enter with an overshoot boing and never snap in.
 
 ## Stasis containment unit
 
@@ -126,9 +153,8 @@ illustration form the stem is gray like the outline, matching the CSS component.
 5. **Don't stretch, rotate, or recolor outside the official palettes.** New colorways get added
    to `scripts/generate.js` as variants, with their source documented here.
 6. **Expressions follow the grammar.** A new mood is a combination of eye shape, antenna
-   state, and stroke-drawn emanata per the
-   [expression design doc](docs/superpowers/specs/2026-07-03-henry-expressions-design.md);
-   the antenna tip morphs into hardware only in robot moods.
+   state, and stroke-drawn emanata per [Expression grammar](#expression-grammar); the
+   antenna tip morphs into hardware only in robot moods.
 
 ## Repo layout
 
